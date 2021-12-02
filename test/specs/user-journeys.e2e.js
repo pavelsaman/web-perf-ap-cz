@@ -18,7 +18,7 @@ describe('User journey', () => {
       .setWindowSize(1920, 1080);
 
     await browser
-      .url('https://alpinepro.cz/');
+      .url(browser.config.baseUrl);
 
     await browser
       .setCookies({
@@ -35,7 +35,7 @@ describe('User journey', () => {
   it('Open homepage', async () => {
 
     await browser
-      .url('https://alpinepro.cz/');
+      .url(browser.config.baseUrl);
 
     const infoStripe = await $('.info-stripe-item');
     await expect(infoStripe)
@@ -79,11 +79,11 @@ describe('User journey', () => {
 
     const email = await $('#Username');
     await email
-      .setValue('pavel.saman@inveo.cz');
+      .setValue(browser.config.username);
 
     const pwd = await $('#Password')
     await pwd
-      .setValue('12345');
+      .setValue(browser.config.password);
   });
 
   it('Log in', async () => {
